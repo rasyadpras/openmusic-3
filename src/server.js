@@ -37,7 +37,7 @@ const CollaborationService = require('./services/postgres/CollaborationService')
 
 const _exports = require('./api/exports');
 const ExportsValidator = require('./validator/exports');
-const ProducerService = require('./services/storage/StorageService');
+const ProducerService = require('./services/rabbitmq/ProducerService');
 
 const uploads = require('./api/uploads');
 const UploadsValidator = require('./validator/uploads');
@@ -179,7 +179,7 @@ const init = async () => {
 
   server.ext('onPreResponse', (request, h) => {
     const { response } = request;
-    console.log(response);
+    // console.log(response);
     if (response instanceof Error) {
       if (response instanceof ClientError) {
         const newResponse = h.response({
