@@ -6,9 +6,8 @@ const NotFoundError = require('../../exceptions/NotFoundError');
 const ClientError = require('../../exceptions/ClientError');
 
 class AlbumLikeService {
-  constructor(albumsService, cacheService) {
+  constructor(cacheService) {
     this._pool = new Pool();
-    this._albumsService = albumsService;
     this._cacheService = cacheService;
     autoBind(this);
   }
