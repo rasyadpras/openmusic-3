@@ -77,7 +77,6 @@ class AlbumLikeService {
   }
 
   async verifyAlbumLiked(albumId, userId) {
-    // await this._albumsService.getAlbumById(albumId);
     const query = {
       text: 'SELECT * FROM album_likes WHERE album_id = $1 AND user_id = $2',
       values: [albumId, userId],
